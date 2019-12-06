@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Youtube search</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <!-- <img src="https://www1-lw.xda-cdn.com/files/2017/08/After-12-Years-Google-Gives-YouTube-a-New-Logo.png"
+                    alt=""> -->
+                <h1>Let's search!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <form id="search">
+                    <div class="form-group">
+                        <input type="text" name="keyword" id="keyword" class="form-control" required>
+                        <br>
+                        <input type="submit" class="btn btn-primary form-control" value="Submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="result-list">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- 3.2 Mỗi DOM (HTML Element) được tạo ra từ item tương ứng sẽ phải chứa thông tin về đường dẫn đến video trên youtube (Có dạng https://www.youtube.com/watch?v=videoId), ảnh thumbnails, tiêu đề (title), mô tả (description). -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./vendor/jquery/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="./vendor/js/bootstrap.min.js"></script>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a.item {
+    height: 120px;
+}
+
+.item img {
+    float: left;
+    display: block;
+    margin-right: 1rem;
+}
