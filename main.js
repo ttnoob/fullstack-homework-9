@@ -12,7 +12,7 @@ $('input[type="submit"]').on('click', (event) => {
 })
 
 $(document).scroll(function (event) {
-    if ($(document).scrollTop() + $(window).height() == $(document).height()) {
+    if ($(document).scrollTop() + $(window).height() >= $(document).height() * 0.9) {
         // console.log('Page is prepare to load more');
         if (!resultList.is(':empty')) {
             //do something
@@ -22,24 +22,33 @@ $(document).scroll(function (event) {
     }
 });
 
-$('#keyword').on('input', function (event) {
-    // setTimeout(function () {
-    //     let current = query;
-    //     console.log(current)
-    //     resultList.empty();
-    //     getNextPageToken()
-    // }, 2000);
+let typing;
+$('#keyword').keypress(function (event) {
+    clearTimeout(typing)
+    typing = setTimeout(function () {
+        query = $('#keyword').val()
+        resultList.empty();
+        getNextPageToken(query)
+    }, 1000);
 })
 
 function getNextPageToken(query, token = null) {
-    loading = true;
+    if (!query) return
+    // $('#loading').toggleClass('hide');
+    if (loading) {
+        return
+    } else {
+        loading = true;
+    }
     $.ajax({
         url: token == null ? `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=AIzaSyA9gQZ-oYomFypZN7PsupZJtOfQqA6Q3qw` : `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&type=video&key=AIzaSyA9gQZ-oYomFypZN7PsupZJtOfQqA6Q3qw&pageToken=${token}`,
         type: 'GET',
         success: function (data, status) {
             nextPageToken = data.nextPageToken;
-            console.log(nextPageToken)
             appendResultList(resultList, data.items);
+            loading = false;
+        },
+        error: function (err) {
             loading = false;
         }
     })

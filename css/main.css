@@ -17,3 +17,7 @@ a.item {
     display: block;
     margin-right: 1rem;
 }
+
+.hide {
+    display: none;
+}
